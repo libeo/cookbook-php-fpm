@@ -9,6 +9,6 @@ version          "0.7.0"
 depends "apt"
 depends "yum", ">= 3.0"
 
-%w{ debian ubuntu centos redhat fedora amazon }.each do |os|
+%w{ debian ubuntu centos redhat fedora amazon scientific oracle }.each do |os|
   supports os
 end
