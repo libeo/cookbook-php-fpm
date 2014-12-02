@@ -1,9 +1,9 @@
 #
-# Author::  Seth Chisamore (<schisamo@opscode.com>)
+# Author::  Seth Chisamore (<schisamo@getchef.com>)
 # Cookbook Name:: php-fpm
 # Recipe:: package
 #
-# Copyright 2011, Opscode, Inc.
+# Copyright 2011-2014, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
 
 template node['php-fpm']['conf_file'] do
   source 'php-fpm.conf.erb'
-  mode 00644
+  mode '0644'
   owner 'root'
   group 'root'
   notifies :restart, 'service[php-fpm]'

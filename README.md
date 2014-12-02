@@ -10,8 +10,8 @@ Platform
 --------
 
 * Debian, Ubuntu
-* CentOS, Red Hat, Fedora
-* Amazon Linux
+* Fedora
+* RHEL and RHEL based distros (CentOS, Amazon Linux, Scientific, Oracle)
 
 Cookbooks
 ---------
@@ -80,9 +80,9 @@ end
 License and Author
 ==================
 
-Author:: Seth Chisamore (<schisamo@opscode.com>)
+Author:: Seth Chisamore (<schisamo@getchef.com>)
 
-Copyright:: 2011, Opscode, Inc
+Copyright:: 2011-2014, Chef Software, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

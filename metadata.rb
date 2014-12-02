@@ -1,6 +1,6 @@
 name             'php-fpm'
-maintainer       'Opscode, Inc.'
-maintainer_email 'cookbooks@opscode.com'
+maintainer       'Chef Software, Inc.'
+maintainer_email 'cookbooks@getchef.com'
 license          'Apache 2.0'
 description      'Installs/Configures php-fpm'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
