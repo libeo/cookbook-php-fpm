@@ -1,7 +1,7 @@
 #
 # Author::  Seth Chisamore (<schisamo@getchef.com>)
 # Cookbook Name:: php-fpm
-# Recipe:: package
+# Recipe:: install
 #
 # Copyright 2011-2014, Chef Software, Inc.
 #
