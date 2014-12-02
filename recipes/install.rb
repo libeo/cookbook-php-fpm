@@ -22,10 +22,10 @@ include_recipe 'php-fpm::repository' unless node['php-fpm']['skip_repository_ins
 include_recipe 'apt::default' if node['platform_family'] == 'debian'
 
 if node['php-fpm']['package_name'].nil?
-  if platform_family?("rhel")
-    php_fpm_package_name = "php-fpm"
+  if platform_family?('rhel')
+    php_fpm_package_name = 'php-fpm'
   else
-    php_fpm_package_name = "php5-fpm"
+    php_fpm_package_name = 'php5-fpm'
   end
 else
   php_fpm_package_name = node['php-fpm']['package_name']
@@ -42,15 +42,15 @@ else
 end
 
 service_provider = nil
-if node['platform'] == 'ubuntu' and node['platform_version'].to_f >= 13.10
+if node['platform'] == 'ubuntu' && node['platform_version'].to_f >= 13.10
   service_provider = ::Chef::Provider::Service::Upstart
 end
 
 directory node['php-fpm']['log_dir']
 
-service "php-fpm" do
+service 'php-fpm' do
   provider service_provider if service_provider
   service_name php_fpm_service_name
   supports :start => true, :stop => true, :restart => true, :reload => true
-  action [ :enable, :start ]
+  action [:enable, :start]
 end

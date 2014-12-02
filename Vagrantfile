@@ -2,16 +2,16 @@
 # vi: set ft=ruby :
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
-VAGRANTFILE_API_VERSION = "2"
+VAGRANTFILE_API_VERSION = '2'
 
-Vagrant.require_version ">= 1.5.0"
+Vagrant.require_version '>= 1.5.0'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-  config.vm.hostname = "php-fpm-berkshelf"
+  config.vm.hostname = 'php-fpm-berkshelf'
 
   # Set the version of chef to install using the vagrant-omnibus plugin
   config.omnibus.chef_version = :latest
@@ -22,11 +22,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.box = "chef/ubuntu-14.04"
   case ENV['VMBOX']
   when 'centos65'
-    config.vm.box = "opscode-centos-6.5"
-    config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.5_chef-provisionerless.box"
+    config.vm.box = 'opscode-centos-6.5'
+    config.vm.box_url = 'http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.5_chef-provisionerless.box'
   else
-    config.vm.box = "opscode-ubuntu-12.04"
-    config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-12.04_chef-provisionerless.box"
+    config.vm.box = 'opscode-ubuntu-12.04'
+    config.vm.box_url = 'http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-12.04_chef-provisionerless.box'
   end
 
   # The url from where the 'config.vm.box' box will be fetched if it
@@ -39,7 +39,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # any other machines on the same network, but cannot be accessed (through this
   # network interface) by any external networks.
   # config.vm.network :private_network, type: "dhcp"
-  config.vm.network :private_network, ip: "33.33.33.10"
+  config.vm.network :private_network, ip: '33.33.33.10'
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -83,8 +83,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.run_list = [
-        "recipe[apt]",
-        "recipe[php-fpm::default]"
+      'recipe[apt]',
+      'recipe[php-fpm::default]'
     ]
   end
 end
