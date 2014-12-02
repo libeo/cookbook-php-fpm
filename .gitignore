@@ -1,19 +1,41 @@
+*.gem
+.zero-knife.rb
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+Gemfile.lock
+_Store
 *~
 *#
 .#*
 \#*#
 .*.sw[a-z]
 *.un~
-pkg/
+*.tmp
+*.bk
+*.bkup
 
-# Berkshelf
-.vagrant
-/cookbooks
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+
+#chef stuff
 Berksfile.lock
-
-# Bundler
-bin/*
-.bundle/*
-
-.kitchen/
+.kitchen
 .kitchen.local.yml
+vendor/
+.coverage/
+
+#vagrant stuff
+.vagrant/
+.vagrant.d/
