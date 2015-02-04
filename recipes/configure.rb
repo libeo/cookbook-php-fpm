@@ -1,9 +1,9 @@
 #
-# Author::  Seth Chisamore (<schisamo@opscode.com>)
+# Author::  Seth Chisamore (<schisamo@getchef.com>)
 # Cookbook Name:: php-fpm
-# Recipe:: package
+# Recipe:: configure
 #
-# Copyright 2011, Opscode, Inc.
+# Copyright 2011-2014, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,11 +19,11 @@
 #
 
 template node['php-fpm']['conf_file'] do
-  source "php-fpm.conf.erb"
-  mode 00644
-  owner "root"
-  group "root"
-  notifies :restart, "service[php-fpm]"
+  source 'php-fpm.conf.erb'
+  mode '0644'
+  owner 'root'
+  group 'root'
+  notifies :restart, 'service[php-fpm]'
 end
 
 unless node['php-fpm']['pools'].key?('www')
@@ -42,7 +42,7 @@ if node['php-fpm']['pools']
     end
     php_fpm_pool pool_name do
       pool.each do |k, v|
-        self.params[k.to_sym] = v
+        params[k.to_sym] = v
       end
     end
   end

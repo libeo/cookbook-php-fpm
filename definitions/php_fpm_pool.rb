@@ -2,7 +2,7 @@
 # Cookbook Name:: php-fpm
 # Definition:: php_fpm_pool
 #
-# Copyright 2008-2009, Opscode, Inc.
+# Copyright 2008-2014, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-define :php_fpm_pool, :template => "pool.conf.erb", :enable => true do
+define :php_fpm_pool, :template => 'pool.conf.erb', :enable => true do
 
   pool_name = params[:name]
 
@@ -27,10 +27,10 @@ define :php_fpm_pool, :template => "pool.conf.erb", :enable => true do
     template conf_file do
       only_if "test -d #{node['php-fpm']['pool_conf_dir']} || mkdir -p #{node['php-fpm']['pool_conf_dir']}"
       source params[:template]
-      owner "root"
-      group "root"
-      mode 00644
-      cookbook params[:cookbook] || "php-fpm"
+      owner 'root'
+      group 'root'
+      mode '0644'
+      cookbook params[:cookbook] || 'php-fpm'
       variables(
         :pool_name => pool_name,
         :listen => params[:listen],
@@ -53,12 +53,12 @@ define :php_fpm_pool, :template => "pool.conf.erb", :enable => true do
         :request_terminate_timeout => params[:request_terminate_timeout],
         :params => params
       )
-      notifies :restart, "service[php-fpm]"
+      notifies :restart, 'service[php-fpm]'
     end
   else
     cookbook_file conf_file do
       action :delete
-      notifies :restart, "service[php-fpm]"
+      notifies :restart, 'service[php-fpm]'
     end
   end
 end
