@@ -41,15 +41,7 @@ when 'debian'
   if node.platform_version.to_f >= 7.0
     apt_repository 'dotdeb' do
       uri node['php-fpm']['dotdeb_repository']['uri']
-      distribution 'stable'
-      components ['all']
-      key node['php-fpm']['dotdeb_repository']['key']
-      action :add
-    end
-  elsif node.platform_version.to_f >= 6.0
-    apt_repository 'dotdeb' do
-      uri node['php-fpm']['dotdeb_repository']['uri']
-      distribution 'squeeze'
+      distribution node['lsb']['codename']
       components ['all']
       key node['php-fpm']['dotdeb_repository']['key']
       action :add
@@ -57,14 +49,14 @@ when 'debian'
   else
     apt_repository 'dotdeb' do
       uri node['php-fpm']['dotdeb_repository']['uri']
-      distribution 'oldstable'
+      distribution node['lsb']['codename']
       components ['all']
       key node['php-fpm']['dotdeb_repository']['key']
       action :add
     end
     apt_repository 'dotdeb-php53' do
       uri node['php-fpm']['dotdeb-php53_repository']['uri']
-      distribution 'oldstable'
+      distribution node['lsb']['codename']
       components ['all']
       key node['php-fpm']['dotdeb_repository']['key']
       action :add
