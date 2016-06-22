@@ -41,7 +41,7 @@ when 'debian'
   if node.platform_version.to_f >= 7.0
     apt_repository 'dotdeb' do
       uri node['php-fpm']['dotdeb_repository']['uri']
-      distribution 'stable'
+      distribution 'wheezy'
       components ['all']
       key node['php-fpm']['dotdeb_repository']['key']
       action :add
